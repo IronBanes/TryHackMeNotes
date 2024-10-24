@@ -1,0 +1,130 @@
+
+---------------------METASPLOIT: Introduction------------------------------
+Metasploit has two versions:
+    Pro: The commercial version that facilitates the automation adn management of task.
+        GUI 
+    Framework: The open-source version works through command line. 
+
+Metasploit Framework is a set of tools that allow
+    information gathering,
+    scanning
+    exploitation
+    exploit development
+    post-exploitation
+    and more...
+
+
+main components 
+    msfconsole: the main command-line interface.
+    modules: supporting modules such as exploits, scanners, payloads, etc.
+    tools: stand-alone tools that will help vulnerability research             vulnerability assessment, or penetration testing. msfvenom, pattern_create and pattern_offset
+
+Main components section: 
+    msfconsole command is the primary command for the metasploit console that allows for interactively. 
+    modules are small components for built to solve a specific task
+    such as: exploiting a vulnerability, scanning a target, or performing a brute-force attack.
+
+    exploit: a piece of code that uses a vulnerability present on the target system
+    vulnerability: a design, coding, or logic flaw affecting the target system.
+    payload: an exploit will take advantage of a vulnerability. 
+
+    auxiliary: any suppporting module, such as scanner, crawlers and fuzzers, can be found here. 
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 auxiliary/
+    
+    encoders: encoders will allow you to encode the exploit and payload in the hope that a signature-based antivirus solution may miss them. 
+        signature-based antivirus and security solutions check against a database of known threats by comparing suspicious files to the database and raise an alert if match is found. 
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 encoders/
+
+    evasion: evasion modules will actively try to evade antivirus software unlike the encoders. 
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 2 evasion/
+
+    exploits: exploits, neatly organized by target system.
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 exploits/
+    
+    nops: (No OPeration) do nothing literally. represented in the intelx86 cpu family with 0x90, which the cpu will do not nothing for one cycle. Often used as a buffer to achieve consisten payload sizes.
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 nops/
+    
+    payloads: payloads are codes that will run on the target system. 
+        exploits will leverage a vulnerability but a payload is needed to get the disired result.
+        examples are getting a shell, loading a malware/backdoor, running a command, or launching calc.exe as poc. 
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 payloads/
+     payloads/
+     ├── adapters
+     ├── singles
+     ├── stagers
+     └── stages
+     4 directories, 0 files
+
+        adapters: an adapter wraps single payloads to convert them into       different formats. example: single payload can be wrapped inside a Powershell adapter, which will make a single powershell cmd that will execute the payload. 
+    
+        Singles: Self-contained payloads (add user, launch notepad.exe, etc.) that do not need to download an additional component to run.
+    
+        Stagers: Responsible for setting up a connection channel between 
+        Metasploit and the target system. Useful when working with staged payloads. “Staged payloads” will first upload a stager on the target system then download the rest of the payload (stage). This provides some advantages as the initial size of the payload will be relatively small compared to the full payload sent at once.
+    
+        Stages: Downloaded by the stager. This will allow you to use larger sized payloads.
+
+    post: post modules are useful on final stage of the penetration testing process/ post-exploitation.
+     /opt/metasploit-framework/embedded/framework/modules# tree -L 1 post/
+    
+msfconsole section:
+    allows for most linux commands after using msfconsole except for redirecting output. 
+    
+    use: command followed  by the module or exploit needed to be used allows you to edit the settings and use that module
+
+    show: show options allows you to see the settings for the module selected for editing 
+
+    set: allows you to set the setting showed in options with set [option/setting] value
+
+    back: puts you back to msfconsole main console msf6 or 5 
+
+    info: shows more information on the module 
+
+    search: cmd will search Metasploit framework for modules relevant to the given search parameter. 
+
+    Another essential piece of information returned is in the “rank” column. Exploits are rated based on their reliability. The table below provides their respective descriptions.
+        https://docs.metasploit.com/docs/using-metasploit/intermediate/exploit-ranking.html
+
+    search also allows for direct searching with keywords such as type and platform.
+
+
+Working with modules:
+    regular cmd prompt: no metasloit commands here
+    root@ip-10-10-XX-XX:~#
+
+    msfconsole prompt: no context is set because it is the normal msfconsole prompt 
+    msf6 > 
+
+    context prompt: once you hace decided to use a module and used the set command to chose it, the msfconsole will show the context. you can use context-specific commands 
+    msf6 exploit(windows/smb/ms17_010_eternalblue) >
+
+    meterpreter prompt: meterpreter is an important payload which means a meterpreter agent was loaded to the target system and connected back to you. 
+    meterpreter >
+
+        
+
+    A shell on the target system: once the exploit is completed, you may have access to a command shell on the target system. this is a regular command line, and all commands typed here run on the target system. 
+    C:\Windows\system32>
+    
+    ------ using modules ------
+
+    exploit: cmd that is used to launch a module also works with run. exploit or exploit -z if you want to background it. 
+
+    check: checks if target system is vulnerable to the exploit without exploiting it. 
+
+    background: cmd to put the session opened from exploit in the background and bring back the msfconsole prompt. CTRL + Z 
+
+    sessions: shows a list of background sessions currently active 
+        sessions -i [number] will put you into that sessions for interacting.
+
+---------------------METASPLOIT: EXPLOITATION------------------------------
+
+
+
+        
+    
+        
+    
+
+
+
