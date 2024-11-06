@@ -1,0 +1,4 @@
+Room focuses on finding a hidden page on FakeBank's 
+website using gobuster.
+gobuster -u http://fakebank.thm -w wordlist.txt dir
+this gives access to /bank-transfer

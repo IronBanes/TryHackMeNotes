@@ -118,8 +118,8 @@ Working with modules:
         sessions -i [number] will put you into that sessions for interacting.
 
 ---------------------METASPLOIT: EXPLOITATION------------------------------
-
-
+    
+scanning: smb_login, http_version, auxiliary/scanner/portscan/tcp, auxiliary/scanner/discovery/udp_sweep, smb_version, 
 
         
     

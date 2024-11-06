@@ -1,0 +1,12 @@
+Security Operations Center: team of cyber security professionals
+    that monitors the network and its systems to detect 
+    malicous cyber security events. 
+
+    duties of SOC
+        patching vulnerabilities inside a system to prevent attackers exploiting them.
+        policy violations: Secuirty policy required to protect the network and systems. 
+        unauthorized activity: consider the case where a user's login name and password are stolen. 
+        SOC must detect and block login attempts from the attacker as soon as possible before further damage is done.
+    
+    Threat intelligence: 
+        
